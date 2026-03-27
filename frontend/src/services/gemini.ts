@@ -10,7 +10,7 @@ export type GeminiAnalyzeResult = {
   text: string
 }
 
-const MODEL_NAME = 'gemini-1.5-pro'
+const MODEL_NAME = 'gemini-2.5-flash'
 
 function requireApiKey(): string {
   if (!apiKey) {
