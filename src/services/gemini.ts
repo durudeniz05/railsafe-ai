@@ -30,25 +30,19 @@ export async function analyzeEtcsErrorCode(
   const model = genAI.getGenerativeModel({ model: MODEL_NAME })
 
   const prompt = `
-Sen bir 20 yıllık deneyimli Senior Railway Signaling & Safety Engineer'sın. Kullanıcının girdiği ETCS/ERTMS hata kodunu veya kısa teknik metni analiz et ve sahada uygulanabilir bir teşhis/aksiyon planı üret.
+Resmi, kurumsal ve şablonlu bir teknik analiz raporu üret. Üçüncü tekil şahıs dili kullan (örnek: "Saptanmıştır", "Gerekmektedir"). Selamlaşma ifadeleri veya hitapla başlamadan doğrudan teknik analiz yürüt.
 
 Gereksinimler:
 - Cevap dili: Türkçe
-- Çıkışı yapılandırılmış ver: 
+- Üslup: "Sektörel Teknik Analiz Raporu" ciddiyetinde.
+- Depolanan veri ve varsayımlara göre kesin olmayan noktalar için "ilgili standarda doğrulama gerekmektedir" ifadesi kullan.
+- Çıkışı yapılandırılmış veri olarak sadece aşağıdaki başlıkları doldur:
   ## Olası Neden
-  (madde madde, uluslararası demiryolu standartlarına dayalı)
-
   ## Güvenlik Protokolü
-  (güvenlik önlemleri ve protokoller, sektör standartlarına uygun)
-
   ## Çözüm Adımları
-  (madde madde, adım adım çözüm rehberi)
-
-  ## Düzenleyici / Standart Notlar
-  (UNISIG, ETCS Subset-026, ERTMS gibi uluslararası standartlara referans; kullanıcıya hangi doküman bölümünün aranacağını belirt)
-- Eğer girdi yeterli değilse tahmin yapmanı kabul edebilirim ama en sonda "Gerekli Ek Bilgi" başlığı altında 3-5 net soru sor.
-- Uydurma yapma: Dokümanların bölüm numarası gibi kesin bilgileri bilmiyorsan genelle, "Bölüm numarası için ilgili spesifikasyonda arama yap" şeklinde yönlendir.
-- Güvenlik uyarısı: Yanlış teşhisin risk yaratabileceğini belirt ve her adımın uluslararası demiryolu standartlarına ve saha prosedürlerine uygun teyit edilmesi gerektiğini vurgula. Hiçbir marka ismi anmadan sektör standartları üzerinden devam et.
+- Her bölümde UNISIG/Subset-026 ve ETCS/ERTMS teknik dokümantasyon referansları açıkça gösterilmeli (örnek: "Subset-026" veya "UNISIG").
+- Girdi yetersizse ek bir başlık olarak "Gerekli Ek Bilgi" ekle; 3-5 hedef soru belirt.
+- Mesajda "Sayın meslektaşım", "Merhaba", "İyi çalışmalar" gibi hitaplar kullanılmayacak.
 
 Kullanıcının girdiği değer:
 ${input.query}
