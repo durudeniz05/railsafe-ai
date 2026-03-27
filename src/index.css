@@ -1,6 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-rail-900: #081024;
+  --color-rail-800: #0b1734;
+  --color-rail-750: #0e1d3f;
+  --color-rail-700: #142b56;
+  --color-rail-600: #1f3f7a;
+  --color-rail-500: #2d7dff;
+  --color-rail-400: #5aa2ff;
+  --color-rail-300: #9fd0ff;
+  --color-rail-200: #d3eaff;
+  --color-rail-100: #eef6ff;
+  --shadow-rail: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
 
 /* App-level defaults */
 * {
@@ -156,4 +168,3 @@ a {
   font-weight: 700;
   opacity: 0.95;
 }
-
