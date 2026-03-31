@@ -8,10 +8,13 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins:.filter(Boolean),
+  plugins: [
+    react(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./features"), // features klasörüne yönlendirildi
+      "@": path.resolve(__dirname, "./features"),
     },
   },
 }));
