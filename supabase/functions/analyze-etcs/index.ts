@@ -42,7 +42,7 @@ Kullanıcının girdiği değer:
 ${query}
 `.trim();
 
-    const response = await fetch("https://api.lovable.dev/v1/chat/completions", {
+    const response = await fetch(AI_GATEWAY_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
